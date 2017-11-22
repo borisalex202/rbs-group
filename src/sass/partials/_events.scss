@@ -1,0 +1,102 @@
+.menu-opened {
+  .site-nav {
+    pointer-events: all;
+    @include translate(0, 0);
+  }
+  .icon-menu {
+    background-color: map_get($colors, secondary);
+  }
+  .icon-bar {
+    &:nth-child(1) {
+      top: 9px;
+      @include rotate(45deg);
+    }
+    &:nth-child(2) {
+      @include opacity(0);
+    }
+    &:nth-child(3) {
+      top: -9px;
+      @include rotate(-45deg);
+    }
+  }
+}
+.search-opened {
+  .search {
+    &-link {
+      background-color: map_get($colors, secondary);
+    }
+    &-input {
+      pointer-events: all;
+      @include opacity(1);
+    }
+  }
+}
+.share-opened {
+  .share {
+    &-link {
+      background-color: map_get($colors, secondary);
+    }
+    &-list {
+      pointer-events: all;
+      @include opacity(1);
+    }
+  }
+}
+.language-opened {
+  .language {
+    &-link {
+      background-color: map_get($colors, secondary);
+    }
+    &-list {
+      pointer-events: all;
+      @include opacity(1);
+    }
+  }
+}
+.submenu-opened {
+  .site-nav {
+    pointer-events: none;
+
+    > ul > li {
+      pointer-events: none !important;
+    }
+  }
+  .site-nav-submenu {
+    pointer-events: all;
+  }
+}
+.map-opened {
+  .site-banner-map {
+    overflow: inherit;
+
+    .toogle-map {
+      z-index: 11;
+    }
+    .icon-maximize {
+      @include opacity(0);
+    }
+    .icon-minimize {
+      @include opacity(1);
+    }
+  }
+  .site-map {
+    pointer-events: all;
+    z-index: 10;
+    height: calc(100vh - 60px) !important;
+    @include opacity(1);
+
+    .ymaps-2-1-56-map {
+      height: calc(100vh - 60px) !important;
+    }
+    @media (max-width: $screen-sm-max) {
+      height: calc(100vh - 50px) !important;
+
+      .ymaps-2-1-56-map {
+        height: calc(100vh - 50px) !important;
+      }
+    }
+  }
+  .widget {
+    z-index: -1;
+  }
+}

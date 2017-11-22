@@ -1,0 +1,82 @@
+.contact {
+  &-list {
+    width: calc(100% + 30px);
+    margin: -30px -15px 0;
+    @include flexbox();
+    @include flex-wrap(wrap);
+  }
+  &-item {
+    width: calc(33.3333% - 30px);
+    padding: 30px 20px;
+    background-color: map_get($colors, contactItem);
+    margin: 30px 15px 0;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+
+    &:hover {
+      .contact-item-hover {
+        pointer-events: all;
+        height: 100%;
+      }
+    }
+    &-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+      background-color: rgba(map_get($colors, secondary), .95);
+      pointer-events: none;
+      height: 0;
+      text-align: center;
+      overflow: hidden;
+      line-height: 28px;
+      @include transition($transition);
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include align-items(center);
+      @include justify-content(center);
+
+      a,
+      p {
+        font-size: 16px;
+        color: #fff;
+      }
+      .icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 11;
+        max-width: 250px;
+        max-height: 250px;
+        @include opacity(.1);
+        @include transform(translate(20%, -20%) rotate(30deg));
+      }
+    }
+    p {
+      margin-bottom: 0;
+    }
+    @media (max-width: $screen-sm-max) {
+      width: calc(100% - 30px);
+    }
+  }
+  &-icon {
+    width: 85px;
+    height: 85px;
+    display: block;
+    margin: 0 auto 10px;
+    position: relative;
+    border-radius: 50%;
+    background-color: map_get($colors, secondary);
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include translate(-50%, -50%);
+    }
+  }
+}

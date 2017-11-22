@@ -1,0 +1,30 @@
+.widget {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+
+  &-icon {
+    width: 345px;
+    height: 405px;
+    color: map_get($colors, default);
+    position: absolute;
+    top: -30px;
+    right: 0;
+    z-index: 0;
+    @include opacity(0.05);
+  }
+  @media (max-width: $screen-md-max) {
+    padding: 50px 0;
+  }
+  @media (max-width: $screen-sm-max) {
+    padding: 40px 0;
+
+    &-icon {
+      max-width: 172px;
+      max-height: 202px;
+    }
+  }
+  @media (max-width: $screen-xs-max) {
+    padding: 30px 0;
+  }
+}

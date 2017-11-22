@@ -1,0 +1,308 @@
+.btn {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  padding: 0 15px;
+  border: 0;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  cursor: pointer;
+  width: auto;
+  height: 45px;
+  line-height: 42px;
+  min-width: 180px;
+  position: relative;
+  overflow: hidden;
+  @include transition($transition);
+
+  &.text-left {
+    text-align: left !important;
+  }
+  &.with-icon {
+    @include inline-flex();
+    @include align-items(center);
+
+    .icon {
+      position: relative;
+      z-index: 2;
+      margin-left: auto;
+    }
+  }
+  &-default {
+    background: transparent;
+    border: 2px solid map_get($colors, default);
+    color: #fff;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 0;
+      background-color: map_get($colors, default);
+      z-index: 0;
+      @include transition($transition);
+    }
+    &:hover {
+      color: #fff;
+      background: darken(map_get($colors, default), 10%);
+      border: 2px solid darken(map_get($colors, default), 10%);
+
+      &:before {
+        background: darken(map_get($colors, default), 10%);
+        height: 100%;
+      }
+    }
+    &:focus,
+    &:active,
+    &:active:hover {
+      background: darken(map_get($colors, default), 20%);
+      border: 2px solid darken(map_get($colors, default), 20%);
+      color: #fff;
+
+      &:before {
+        height: 100%;
+        background-color: darken(map_get($colors, default), 10%);
+      }
+    }
+    &.disabled,
+    &[disabled] {
+      cursor: not-allowed;
+      color: map_get($colors, linkDisabled);
+      border: 2px solid map_get($colors, linkDisabled);
+      background: transparent;
+
+      &:hover {
+        background: transparent;
+        color: map_get($colors, linkDisabled);
+
+        &:before {
+          height: 0%;
+        }
+      }
+      &:focus,
+      &:active,
+      &:active:hover {
+        color: map_get($colors, linkDisabled);
+        border: 2px solid map_get($colors, linkDisabled);
+        background: transparent;
+        @include box-shadow(none);
+
+        &:before {
+          height: 0%;
+        }
+      }
+    }
+  }
+  &-primary {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 0;
+      background-color: #fff;
+      z-index: 0;
+      @include transition($transition);
+    }
+    &:hover {
+      color: map_get($colors, default);
+      background: darken(#fff, 10%);
+      border: 2px solid darken(#fff, 10%);
+
+      &:before {
+        background: darken(#fff, 10%);
+        height: 100%;
+      }
+    }
+    &:focus,
+    &:active,
+    &:active:hover {
+      background: darken(#fff, 20%);
+      border: 2px solid darken(#fff, 20%);
+      color: map_get($colors, default);
+
+      &:before {
+        height: 100%;
+        background-color: darken(#fff, 10%);
+      }
+    }
+    &.disabled,
+    &[disabled] {
+      cursor: not-allowed;
+      color: map_get($colors, linkDisabled);
+      border: 2px solid map_get($colors, linkDisabled);
+      background: transparent;
+
+      &:hover {
+        background: transparent;
+        color: map_get($colors, linkDisabled);
+
+        &:before {
+          height: 0%;
+        }
+      }
+      &:focus,
+      &:active,
+      &:active:hover {
+        color: map_get($colors, linkDisabled);
+        border: 2px solid map_get($colors, linkDisabled);
+        background: transparent;
+        @include box-shadow(none);
+
+        &:before {
+          height: 0%;
+        }
+      }
+    }
+  }
+  &-secondary {
+    background: transparent;
+    border: 2px solid map_get($colors, default);
+    color: map_get($colors, default);
+
+    &.__green {
+      border-color: map_get($colors, success);
+      color: map_get($colors, success);
+
+      &:before {
+        background: map_get($colors, success);
+      }
+      &:hover {
+        color: #fff;
+        background: darken(map_get($colors, success), 10%);
+        border-color: darken(map_get($colors, success), 10%);
+
+        &:before {
+          background: darken(map_get($colors, success), 10%);
+        }
+      }
+      &:focus,
+      &:active,
+      &:active:hover {
+        color: #fff;
+        background: darken(map_get($colors, success), 20%);
+        border-color: darken(map_get($colors, success), 20%);
+
+        &:before {
+          background: darken(map_get($colors, success), 10%);
+        }
+      }
+    }
+    &.filled {
+      border: 2px solid map_get($colors, default);
+      background: map_get($colors, default);
+      color: #fff;
+
+      &:before {
+        display: none !important;
+      }
+      &:hover {
+        border: 2px solid darken(map_get($colors, default), 10%);
+        background: darken(map_get($colors, default), 10%);
+      }
+      &:focus,
+      &:active,
+      &:active:hover {
+        border: 2px solid darken(map_get($colors, default), 20%);
+        background: darken(map_get($colors, default), 20%);
+      }
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 0;
+      background-color: map_get($colors, default);
+      z-index: 0;
+      @include transition($transition);
+    }
+    &:hover {
+      color: #fff;
+      background: darken(map_get($colors, default), 10%);
+      border: 2px solid darken(map_get($colors, default), 10%);
+
+      &:before {
+        background: darken(map_get($colors, default), 10%);
+        height: 100%;
+      }
+      .icon {
+        color: #fff;
+      }
+    }
+    &:focus,
+    &:active,
+    &:active:hover {
+      background: darken(map_get($colors, default), 20%);
+      border: 2px solid darken(map_get($colors, default), 20%);
+      color: #fff;
+
+      &:before {
+        height: 100%;
+        background-color: darken(map_get($colors, default), 10%);
+      }
+      .icon {
+        color: #fff;
+      }
+    }
+    &.disabled,
+    &[disabled] {
+      cursor: not-allowed;
+      color: map_get($colors, linkDisabled);
+      border: 2px solid map_get($colors, linkDisabled);
+      background: transparent;
+
+      &:hover {
+        background: transparent;
+        color: map_get($colors, linkDisabled);
+
+        &:before {
+          height: 0%;
+        }
+      }
+      &:focus,
+      &:active,
+      &:active:hover {
+        color: map_get($colors, linkDisabled);
+        border: 2px solid map_get($colors, linkDisabled);
+        background: transparent;
+        @include box-shadow(none);
+
+        &:before {
+          height: 0%;
+        }
+        .icon {
+          color: map_get($colors, linkDisabled);
+        }
+      }
+      .icon {
+        color: map_get($colors, linkDisabled);
+      }
+    }
+    .icon {
+      color: map_get($colors, default);
+    }
+  }
+  span {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+  }
+  @media (max-width: $screen-xs) {
+    height: 40px;
+    line-height: 37px;
+  }
+}

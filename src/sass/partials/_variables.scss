@@ -1,0 +1,64 @@
+/* Fonts */
+$font-family-base:             'Open Sans', sans-serif;
+$font-size:                    16px;
+
+/* Animation */
+$transition:                   all .3s ease;
+
+/* Main */
+$shadow:                       0 3px 10px 0 rgba(0,0,0,0.40);
+
+//  Colors
+$colors: (
+        default:               #E0883A,
+        primary:               #C4793B,
+        secondary:             #5F3B1C,
+        text:                  #797979,
+        border:                #E9E9E9,
+        linkDisabled:          #ddd,
+        link:                  #FF7800,
+        linkHover:             rgb(255, 234, 62),
+        line:                  #DA4B5B,
+        author:                #a7a7a7,
+        contact:               #3F2F22,
+        contactItem:           #EDEDED,
+        timeline:              #EB9046,
+        timelineYear:          #8B572A,
+        success:               #3BB477
+);
+
+//  Size
+$size: (
+        h1:                    40px,
+        h2:                    30px,
+        h3:                    35px,
+        h4:                    30px,
+        h5:                    25px,
+        h6:                    20px,
+        p:                     14px,
+        a:                     16px
+);
+
+//  Background
+$bg-colors: (
+        default:               #E0883A,
+        primary:               #444444,
+        gray:                  #F2F2F2
+);
+
+// Bootstrap
+
+// Small screen / tablet
+$container-tablet:             (720px + $grid-gutter-width);
+//** For `$screen-sm-min` and up.
+$container-sm:                 $container-tablet;
+
+// Medium screen / desktop
+$container-desktop:            (940px + $grid-gutter-width);
+//** For `$screen-md-min` and up.
+$container-md:                 $container-desktop;
+
+// Large screen / wide desktop
+$container-large-desktop:      (1170px + $grid-gutter-width);
+//** For `$screen-lg-min` and up.
+$container-lg:                 $container-large-desktop;

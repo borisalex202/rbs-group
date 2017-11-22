@@ -1,0 +1,72 @@
+.language {
+  &-block {
+    width: 60px;
+    height: 60px;
+    position: relative;
+
+    @media (max-width: $screen-sm-max) {
+      height: 50px;
+      width: 50px;
+    }
+  }
+  &-link {
+    height: 100%;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include align-items(center);
+    @include justify-content(center);
+
+    .icon {
+      margin: auto;
+    }
+    &:hover {
+      background-color: map_get($colors, secondary);
+    }
+  }
+  &-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: map_get($colors, secondary);
+    pointer-events: none;
+    @include transition($transition);
+    @include opacity(0);
+
+    li {
+      display: block;
+      width: 60px;
+      cursor: pointer;
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include align-items(center);
+      @include justify-content(center);
+      @include transition($transition);
+
+      @media (max-width: $screen-sm-max) {
+        width: 50px;
+      }
+    }
+    @media (max-width: $screen-sm-max) {
+      width: 100%;
+    }
+  }
+  &-current {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    .icon {
+      max-width: 15px;
+      max-height: 10px;
+    }
+    @media (max-width: $screen-sm-max) {
+      bottom: 5px;
+      right: 5px;
+    }
+  }
+}

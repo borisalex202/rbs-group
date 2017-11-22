@@ -1,0 +1,97 @@
+            <div class="site-top">
+                <header class="site-header init-opacity-0 animated fadeInDown">
+                    <div class="container">
+                        <a href="index.html" class="site-logo">
+                            <svg class="icon icon-logo"><use xlink:href="#icon-logo"></use></svg>
+                        </a>
+                        <nav class="site-nav">
+                            <ul>
+                                <li class="@@if(context.menu_item == 'index') {active}"><a href="index.html">Главная</a></li>
+                                <li class="has-childs @@if(context.menu_item == 'about') {active}">
+                                    <a href="about.html">
+                                        О группе
+                                        <svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg>
+                                    </a>
+                                    <ul class="site-nav-submenu">
+                                        <li class="site-nav-back">
+                                            <svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg>
+                                            Назад
+                                        </li>
+                                        <li class="dubbed @@if(context.menu_item == 'about') {active}"><a href="about.html">О группе</a></li>
+                                        <li class="@@if(context.menu_subitem == 'history') {active}"><a href="history.html">История</a></li>
+                                        <li><a href="#">Руководство</a></li>
+                                        <li><a href="#">Цифры и факты</a></li>
+                                        <li><a href="#">География</a></li>
+                                        <li><a href="#">Карьера</a></li>
+                                    </ul>
+                                </li>
+                                <li class="disabled has-childs">
+                                    <a href="#">
+                                        Структура
+                                        <svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg>
+                                    </a>
+
+                                    <ul class="site-nav-submenu">
+                                        <li class="site-nav-back">
+                                            <svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg>
+                                            Назад
+                                        </li>
+                                        <li class="dubbed"><a href="#">Структура</a></li>
+                                        <li><a href="#">Розничные банковские системы</a></li>
+                                        <li><a href="#">РБС24</a></li>
+                                        <li><a href="#">РБС-Директ</a></li>
+                                        <li><a href="#">РБС-Финанс</a></li>
+                                    </ul>
+                                </li>
+                                <li class="disabled"><a href="#">Продукты</a></li>
+                                <li class="disabled"><a href="#">Стратегия</a></li>
+                                <li class="@@if(context.menu_item == 'contacts') {active}"><a href="contacts.html">Контакты</a></li>
+                            </ul>
+                        </nav>
+                        <div class="right">
+                            <div class="language-block">
+                                <a href="#" class="language-link">
+                                    <svg class="icon icon-world"><use xlink:href="#icon-world"></use></svg>
+                                    <span class="language-current">
+                                        <svg class="icon icon-lang-rus"><use xlink:href="#icon-lang-rus"></use></svg>
+                                    </span>
+                                </a>
+                                <ul class="language-list">
+                                    <li class="language-item">
+                                        <svg class="icon icon-lang-rus"><use xlink:href="#icon-lang-rus"></use></svg>
+                                    </li>
+                                    <li class="language-item">
+                                        <svg class="icon icon-lang-eng"><use xlink:href="#icon-lang-eng"></use></svg>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="share-block">
+                                <a href="#" class="share-link">
+                                    <svg class="icon icon-share"><use xlink:href="#icon-share"></use></svg>
+                                </a>
+                                <ul class="share-list social-likes">
+                                    <li class="share-facebook facebook" title="Поделиться в Facebook">
+                                        <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
+                                    </li>
+                                    <li class="share-twitter twitter" title="Поделиться в Twitter">
+                                        <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
+                                    </li>
+                                    <li class="share-google-plus plusone" title="Поделиться в Google+">
+                                        <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
+                                    </li>
+                                </ul>
+                            </div>
+                            <form action="search.html" class="search-block">
+                                <button class="search-link">
+                                    <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>
+                                </button>
+                                <input type="text" class="search-input" placeholder="Искать на сайте…">
+                            </form>
+                        </div>
+                        <button class="icon icon-menu">
+                            <span class="icon icon-bar"></span>
+                            <span class="icon icon-bar"></span>
+                            <span class="icon icon-bar"></span>
+                        </button>
+                    </div>
+                </header>

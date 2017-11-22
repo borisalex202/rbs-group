@@ -1,0 +1,84 @@
+.share {
+  &-block {
+    width: 60px;
+    height: 60px;
+    position: relative;
+
+    @media (max-width: $screen-sm-max) {
+      height: 50px;
+      width: 50px;
+    }
+  }
+  &-link {
+    height: 100%;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include align-items(center);
+    @include justify-content(center);
+
+    .icon {
+      margin: auto;
+    }
+    &:hover {
+      background-color: map_get($colors, secondary);
+    }
+  }
+  &-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: map_get($colors, secondary);
+    pointer-events: none;
+    @include transition($transition);
+    @include opacity(0);
+
+    li {
+      display: block;
+      height: 60px;
+      width: 60px;
+      cursor: pointer;
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include align-items(center);
+      @include justify-content(center);
+      @include transition($transition);
+
+      @media (max-width: $screen-sm-max) {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    .social-likes__counter {
+      display: none;
+    }
+    @media (max-width: $screen-sm-max) {
+      width: 100%;
+    }
+  }
+  &-facebook {
+    background-color: #43609A;
+
+    &:hover {
+      background-color: darken(#43609A, 10%);
+    }
+  }
+  &-twitter {
+    background-color: #1DA1F2;
+
+    &:hover {
+      background-color: darken(#1DA1F2, 10%);
+    }
+  }
+  &-google-plus {
+    background-color: #DB4437;
+
+    &:hover {
+      background-color: darken(#DB4437, 10%);
+    }
+  }
+}

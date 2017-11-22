@@ -1,0 +1,201 @@
+.form {
+  &-group {
+    position: relative;
+    margin-bottom: 30px;
+
+    &[class*="col"] {
+      .form-placeholder {
+        left: 30px;
+
+        @media (max-width: $screen-xs) {
+          left: 25px;
+        }
+      }
+    }
+    &.active {
+      .form {
+        &-placeholder {
+          top: 0;
+          color: lighten(#4A4A4A, 30%);
+        }
+        &-control {
+          border-color: map_get($colors, default);
+
+          &.error {
+            border-color: red;
+          }
+          &.success {
+            border-color: map_get($colors, success);
+          }
+        }
+      }
+    }
+    &.error {
+      .form {
+        &-placeholder {
+          color: red;
+        }
+        &-control {
+          color: red;
+          border-color: red;
+        }
+      }
+    }
+    &.success {
+      .form {
+        &-placeholder {
+          color: map_get($colors, success);
+        }
+        &-control {
+          color: map_get($colors, success);
+          border-color: map_get($colors, success);
+        }
+      }
+    }
+  }
+  &-control {
+    position: relative;
+    min-height: 40px;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 1px solid map_get($colors, text);
+    padding: 0 15px;
+    @include transition($transition);
+
+    &:focus,
+    &:active {
+      ~ .form {
+        &-control {
+          border-color: map_get($colors, default);
+        }
+        &-placeholder {
+          top: 0;
+          color: lighten(#4A4A4A, 30%);
+        }
+      }
+    }
+    &.error {
+      color: red;
+      border-color: red;
+
+      ~ .form {
+        &-placeholder {
+          color: red;
+        }
+      }
+      @media (min-width: $screen-md) {
+        @include animation(errorVibro 1s ease-in-out);
+
+        ~ .form {
+          &-placeholder {
+            @include animation(errorVibro 1s ease-in-out);
+          }
+        }
+      }
+    }
+    &.success {
+      color: map_get($colors, success);
+      border-color: map_get($colors, success);
+
+      ~ .form {
+        &-placeholder {
+          color: map_get($colors, success);
+        }
+      }
+    }
+    @media (max-width: $screen-xs) {
+      padding: 0 10px;
+    }
+  }
+  &-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    font-size: 14px;
+    color: #4A4A4A;
+    line-height: 18px;
+    pointer-events: none;
+    @include transition($transition);
+    @include translate(0, -50%);
+
+    @media (max-width: $screen-xs) {
+      left: 10px;
+    }
+  }
+  &-answer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    height: 0%;
+    text-align: center;
+    overflow: hidden;
+    pointer-events: none;
+    @include transition($transition);
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include align-items(center);
+    @include justify-content(center);
+
+    &.in {
+      pointer-events: all;
+      height: 100%;
+    }
+    .icon {
+      margin-bottom: 40px;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      margin-bottom: 40px;
+      color: map_get($colors, success);
+    }
+    @media (max-width: $screen-xs-max) {
+      .icon {
+        margin-bottom: 30px;
+      }
+      h1,h2,h3,h4,h5,h6 {
+        margin-bottom: 30px;
+      }
+    }
+    @media (max-width: $screen-xs) {
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+  @media (max-width: $screen-xs) {
+    .btn {
+      width: 100%;
+    }
+  }
+  .red {
+    color: red;
+  }
+}
+textarea.form-control {
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+@include keyframes(errorVibro) {
+  0% {
+    margin-top: -10px;
+  }
+  50% {
+    margin-top: 0;
+  }
+  70% {
+    margin-top: -4px;
+  }
+  80% {
+    margin-top: 0;
+  }
+  90% {
+    margin-top: -4px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}

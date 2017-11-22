@@ -1,0 +1,70 @@
+html, body {
+  font-family: $font-family-base;
+  font-size: $font-size;
+  font-weight: 400;
+  height: 100%;
+  min-width: 300px;
+}
+body {
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+.container {
+  @media (max-width: $screen-xs-max) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+.wrapper {
+  padding-top: 60px;
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
+  @include flexbox();
+  @include flex-wrap(wrap);
+  @include align-items(center);
+
+  > * {
+    width: 100%;
+  }
+  @media (max-width: $screen-sm-max) {
+    padding-top: 50px;
+  }
+}
+.bg {
+  @each $bg, $color in $bg-colors {
+    &-#{$bg} {
+      background-color: $color;
+    }
+  }
+}
+.text {
+  @each $colorName, $color in $colors {
+    &-#{$colorName} {
+      color: $color;
+    }
+  }
+  &-white {
+    color: #fff;
+  }
+  &-red {
+    color: #ed1b2e;
+  }
+}
+.shadow {
+  @include box-shadow($shadow);
+}
+.indent {
+  padding: 40px 0;
+
+  @media (max-width: $screen-md-max) {
+    padding: 25px 0;
+  }
+  @media (max-width: $screen-sm-max) {
+    padding: 20px 0;
+  }
+  @media (max-width: $screen-xs-max) {
+    padding: 15px 0;
+  }
+}

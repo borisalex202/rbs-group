@@ -1,0 +1,153 @@
+@@include('templates/_head.html', {
+	"title": "РБС - Контакты"
+})
+@@include('templates/_header.html', {
+	"menu_item": "contacts"
+})
+				<main>
+					<div class="site-banner site-banner-map init-opacity-0 animated fadeIn">
+						<div id="map" class="site-map" style="width: 100%; height: 320px"></div>
+						<button class="toogle-map">
+							<svg class="icon icon-maximize"><use xlink:href="#icon-maximize"></use></svg>
+							<svg class="icon icon-minimize"><use xlink:href="#icon-minimize"></use></svg>
+						</button>
+						<div class="container">
+							<div class="site-banner-content">
+								<h1>Контакты</h1>
+								<ul class="breadcrumbs">
+									<li><a href="index.html">Главная</a></li>
+									<li>Контакты</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="widget">
+						<svg class="widget-icon icon icon-gear"><use xlink:href="#icon-gear"></use></svg>
+
+						<div class="container init-opacity-0 animated animatedOnScroll" data-animated="fadeIn">
+							<div class="heading">
+								<span class="heading-title">Контактные данные</span>
+							</div>
+
+							<div class="contact-list">
+								<div class="contact-item">
+									<div class="contact-item-hover">
+										<svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>
+										<div class="">
+											<a href="tel:375290000000">+375(29)000-00-00 (МТС)</a><br>
+											<a href="tel:375290000000">+375(29)000-00-00 (Velcom)</a>
+										</div>
+									</div>
+									<span class="contact-icon">
+										<svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>
+									</span>
+									<h4>Позвоните нам</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur. Suspendisse variusenim in eros elementum tristique.</p>
+								</div>
+								<div class="contact-item">
+									<div class="contact-item-hover">
+										<svg class="icon icon-send"><use xlink:href="#icon-send"></use></svg>
+										<div class="">
+											<a href="mailto:info@rbs.by">info@rbs.by</a>
+										</div>
+									</div>
+									<span class="contact-icon">
+										<svg class="icon icon-send"><use xlink:href="#icon-send"></use></svg>
+									</span>
+									<h4>Напишите нам</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur. Suspendisse variusenim in eros elementum tristique.</p>
+								</div>
+								<div class="contact-item">
+									<div class="contact-item-hover">
+										<svg class="icon icon-marker"><use xlink:href="#icon-marker"></use></svg>
+										<div class="">
+											<p>г. Минск, ул. Ленина, д. 23</p>
+										</div>
+									</div>
+									<span class="contact-icon">
+										<svg class="icon icon-marker"><use xlink:href="#icon-marker"></use></svg>
+									</span>
+									<h4>Приходите к нам</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur. Suspendisse variusenim in eros elementum tristique.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					@@include('templates/_feedback.html')
+				</main>
+@@include('templates/_footer.html')
+@@include('templates/_scripts_styles.html')
+			<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+			<script>
+				ymaps.ready(function () {
+					myMap = new ymaps.Map('map', {
+							center: [53.9101952, 27.5567259],
+							zoom: 10,
+							controls: []
+						}, {
+							searchControlProvider: 'yandex#search'
+						}),
+
+						ZoomLayout = ymaps.templateLayoutFactory.createClass("<div>" +
+							"<div id='zoom-in' class='zoom zoom-in'>+</div>" +
+							"<div id='zoom-out' class='zoom zoom-out'>—</div>" +
+							"</div>", {
+
+							build: function () {
+								ZoomLayout.superclass.build.call(this);
+
+								this.zoomInCallback = ymaps.util.bind(this.zoomIn, this);
+								this.zoomOutCallback = ymaps.util.bind(this.zoomOut, this);
+
+								$('#zoom-in').bind('click', this.zoomInCallback);
+								$('#zoom-out').bind('click', this.zoomOutCallback);
+							},
+
+							clear: function () {
+								$('#zoom-in').unbind('click', this.zoomInCallback);
+								$('#zoom-out').unbind('click', this.zoomOutCallback);
+
+								ZoomLayout.superclass.clear.call(this);
+							},
+
+							zoomIn: function () {
+								var map = this.getData().control.getMap();
+								map.setZoom(map.getZoom() + 1, {checkZoomRange: true});
+							},
+
+							zoomOut: function () {
+								var map = this.getData().control.getMap();
+								map.setZoom(map.getZoom() - 1, {checkZoomRange: true});
+							}
+						}),
+						zoomControl = new ymaps.control.ZoomControl({options: {layout: ZoomLayout}});
+
+					myMap.controls.add(zoomControl);
+                    myMap.behaviors.disable('scrollZoom');
+
+					myPlacemark = new ymaps.Placemark(myMap.getCenter(), {}, {
+						iconLayout: 'default#image',
+						iconImageHref: 'img/svg/marker.svg',
+						iconImageSize: [30, 42],
+						iconImageOffset: [-15, -21]
+					});
+					myPlacemark1 = new ymaps.Placemark([53.9801952, 27.5867259], {}, {
+						iconLayout: 'default#image',
+						iconImageHref: 'img/svg/marker.svg',
+						iconImageSize: [30, 42],
+						iconImageOffset: [-15, -21]
+					});
+					myPlacemark2 = new ymaps.Placemark([53.8601952, 27.5167259], {}, {
+						iconLayout: 'default#image',
+						iconImageHref: 'img/svg/marker.svg',
+						iconImageSize: [30, 42],
+						iconImageOffset: [-15, -21]
+					});
+
+					myMap.geoObjects
+						.add(myPlacemark)
+						.add(myPlacemark1)
+						.add(myPlacemark2);
+				})
+			</script>
+@@include('templates/_end.html')
