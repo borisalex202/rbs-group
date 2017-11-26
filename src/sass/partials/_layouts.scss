@@ -440,6 +440,14 @@
         pointer-events: none;
         @include opacity(.15);
         @include transition($transition);
+
+        @media (max-width: $screen-md-max) {
+          height: 240px !important;
+
+          .ymaps-2-1-56-map {
+            height: 240px !important;
+          }
+        }
       }
       .toogle-map {
         border: 1px solid #ddd;
@@ -732,238 +740,6 @@
     }
   }
 }
-.timeline {
-  text-align: center;
-  position: relative;
-  max-width: 710px;
-  margin: 0 auto;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    background: map_get($colors, timeline);
-    z-index: 0;
-    @include translate(-50%, 0);
-  }
-  &-block {
-    position: relative;
-    z-index: 1;
-
-    &:not(:last-child) {
-      margin-bottom: 40px;
-
-      @media (max-width: $screen-xs-max) {
-        margin-bottom: 30px;
-      }
-    }
-  }
-  &-item {
-    margin-top: 40px;
-    position: relative;
-    @include flexbox();
-    @include align-items(center);
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 12px;
-      height: 12px;
-      background-color: map_get($colors, secondary);
-      border-radius: 50%;
-      border: 2px solid map_get($bg-colors, gray);
-      @include translate(-50%, -50%);
-
-      @media (max-width: $screen-xs-max) {
-        top: 3px;
-        @include translate(-50%, 0);
-      }
-    }
-    &.right {
-      .timeline-item {
-        &-date {
-          margin-left: auto;
-          color: #3F2F22;
-          font-size: 12px;
-        }
-        &-info {
-          position: relative;
-          display: inline-block;
-          background: #FFFFFF;
-          padding: 10px;
-          max-width: 320px;
-          margin-left: 70px;
-          text-align: left;
-          border: 1px solid #E1E1E1;
-          font-size: 12px;
-          color: #3F2F22;
-
-          &:before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -14px;
-            border-right: 14px solid #E1E1E1;
-            border-bottom: 8px solid transparent;
-            border-top: 8px solid transparent;
-            @include translate(0, -50%);
-          }
-          &:after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -12px;
-            border-right: 13px solid #fff;
-            border-bottom: 7px solid transparent;
-            border-top: 7px solid transparent;
-            @include translate(0, -50%);
-          }
-        }
-        @media (max-width: $screen-xs-max) {
-          &-date {
-            margin-left: auto;
-            color: #3F2F22;
-            font-size: 14px;
-            width: 100%;
-            padding-left: calc(50% + 15px);
-            text-align: left;
-          }
-          &-info {
-            width: 100%;
-            max-width: 100%;
-            margin: 20px 0 0 0;
-
-            &:before {
-              bottom: 100%;
-              top: inherit;
-              left: 50%;
-              border-bottom: 14px solid #E1E1E1;
-              border-left: 8px solid transparent;
-              border-right: 8px solid transparent;
-              @include translate(-50%, 0);
-            }
-            &:after {
-              bottom: calc(100% - 1px);
-              top: inherit;
-              left: 50%;
-              border-bottom: 13px solid #fff;
-              border-left: 7px solid transparent;
-              border-right: 7px solid transparent;
-              @include translate(-50%, 0);
-            }
-          }
-        }
-      }
-    }
-    &.left {
-      .timeline-item {
-        &-date {
-          margin-right: auto;
-          color: #3F2F22;
-          font-size: 12px;
-        }
-        &-info {
-          position: relative;
-          display: inline-block;
-          background: #FFFFFF;
-          padding: 10px;
-          max-width: 320px;
-          margin-right: 70px;
-          text-align: left;
-          border: 1px solid #E1E1E1;
-          font-size: 12px;
-          color: #3F2F22;
-
-          &:before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -14px;
-            border-left: 14px solid #E1E1E1;
-            border-bottom: 8px solid transparent;
-            border-top: 8px solid transparent;
-            @include translate(0, -50%);
-          }
-          &:after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -12px;
-            border-left: 13px solid #fff;
-            border-bottom: 7px solid transparent;
-            border-top: 7px solid transparent;
-            @include translate(0, -50%);
-          }
-        }
-        @media (max-width: $screen-xs-max) {
-          &-date {
-            margin-right: auto;
-            color: #3F2F22;
-            font-size: 14px;
-            width: 100%;
-            padding-right: calc(50% + 15px);
-            text-align: right;
-          }
-          &-info {
-            width: 100%;
-            max-width: 100%;
-            margin: 20px 0 0 0;
-
-            &:before {
-              bottom: 100%;
-              top: inherit;
-              right: inherit;
-              left: 50%;
-              border-bottom: 14px solid #E1E1E1;
-              border-left: 8px solid transparent;
-              border-right: 8px solid transparent;
-              @include translate(-50%, 0);
-            }
-            &:after {
-              bottom: calc(100% - 1px);
-              top: inherit;
-              right: inherit;
-              left: 50%;
-              border-bottom: 13px solid #fff;
-              border-left: 7px solid transparent;
-              border-right: 7px solid transparent;
-              @include translate(-50%, 0);
-            }
-          }
-        }
-      }
-      @media (max-width: $screen-xs-max) {
-        @include flex-wrap(wrap-reverse);
-        @include flex-direction(row-reverse);
-      }
-    }
-    @media (max-width: $screen-xs-max) {
-      margin-top: 30px;
-      @include flex-wrap(wrap);
-    }
-  }
-  &-year {
-    display: inline-block;
-    height: 40px;
-    color: #fff;
-    min-width: 115px;
-    line-height: 40px;
-    cursor: pointer;
-    background: map_get($colors, timelineYear);
-    box-shadow: 0 0 5px 0 rgba(0,0,0,0.50);
-    border-radius: 100px;
-    @include transition($transition);
-
-    &:hover {
-      background: map_get($colors, primary);
-    }
-  }
-}
 .more-block {
   text-align: center;
   margin-top: 60px;
@@ -979,4 +755,7 @@
       width: 100%;
     }
   }
+}
+.relative {
+  position: relative;
 }

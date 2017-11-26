@@ -70,14 +70,23 @@
     top: 3px;
   }
   &-lang {
-    &-rus,
-    &-eng {
+    &-rus {
       max-width: 60px;
       max-height: 36px;
 
       @media (max-width: $screen-sm-max) {
         max-width: 50px;
         max-height: 30px;
+      }
+    }
+    &-eng {
+      max-width: 60px;
+      max-height: 60px;
+      margin: -13px 0;
+
+      @media (max-width: $screen-sm-max) {
+        max-width: 50px;
+        max-height: 50px;
       }
     }
   }

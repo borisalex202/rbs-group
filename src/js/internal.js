@@ -17,6 +17,7 @@ var elements = {
     languageItem: $('.language-item'),
     languageCurrent: $('.language-current'),
     timelineYear: $('.timeline-year'),
+    timelineToggleAll: $('.timeline-toggle-all'),
     timelineItem: $('.timeline-item')
 };
 var options = {
@@ -240,7 +241,14 @@ var myMap;
 
     /* Timeline */
     elements.timelineYear.on('click', function () {
-       $(this).parent().find(elements.timelineItem).slideToggle();
+        $(this).parent().find(elements.timelineItem).slideToggle();
+    });
+    elements.timelineToggleAll.on('click', function (e) {
+        e.preventDefault();
+        $(this).find('span').text(function(i, text){
+            return text === "Скрыть историю" ? "Показать историю" : "Скрыть историю";
+        });
+        $(this).closest('body').find(elements.timelineItem).slideToggle();
     });
 
     /* Animation and lazy load */

@@ -47,6 +47,17 @@
       @include justify-content(center);
       @include transition($transition);
 
+      @media (min-width: $screen-md) {
+        &:hover {
+          .icon {
+            @include grayscale('on', 0);
+          }
+        }
+        .icon {
+          pointer-events: none;
+          @include grayscale('on', .5);
+        }
+      }
       @media (max-width: $screen-sm-max) {
         width: 50px;
       }
@@ -62,7 +73,7 @@
 
     .icon {
       max-width: 15px;
-      max-height: 10px;
+      max-height: 15px;
     }
     @media (max-width: $screen-sm-max) {
       bottom: 5px;
