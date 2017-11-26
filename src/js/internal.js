@@ -240,15 +240,21 @@ var myMap;
     });
 
     /* Timeline */
+    var timelineShow = true;
     elements.timelineYear.on('click', function () {
         $(this).parent().find(elements.timelineItem).slideToggle();
     });
     elements.timelineToggleAll.on('click', function (e) {
         e.preventDefault();
-        $(this).find('span').text(function(i, text){
-            return text === "Скрыть историю" ? "Показать историю" : "Скрыть историю";
-        });
-        $(this).closest('body').find(elements.timelineItem).slideToggle();
+        if(timelineShow) {
+            $(this).find('span').text('Показать историю');
+            $(this).closest('body').find(elements.timelineItem).slideUp();
+            timelineShow = false;
+        } else {
+            $(this).find('span').text('Скрыть историю');
+            $(this).closest('body').find(elements.timelineItem).slideDown();
+            timelineShow = true;
+        }
     });
 
     /* Animation and lazy load */
