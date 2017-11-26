@@ -240,9 +240,32 @@ var myMap;
     });
 
     /* Timeline */
-    var timelineShow = true;
+    var timelineShow = true,
+        timelineTabsShow = 0;
+
+    elements.timelineItem.each(function () {
+        if($(this).is(':visible'))
+            timelineTabsShow++;
+    });
     elements.timelineYear.on('click', function () {
         $(this).parent().find(elements.timelineItem).slideToggle();
+
+        timelineTabsShow = 0;
+        setTimeout(function () {
+            elements.timelineItem.each(function () {
+                if ($(this).is(':visible'))
+                    timelineTabsShow++;
+            });
+        }, 500);
+        setTimeout(function () {
+            if (timelineTabsShow === 0) {
+                elements.timelineToggleAll.find('span').text('Показать историю');
+                timelineShow = false;
+            } else {
+                elements.timelineToggleAll.find('span').text('Скрыть историю');
+                timelineShow = true;
+            }
+        }, 501);
     });
     elements.timelineToggleAll.on('click', function (e) {
         e.preventDefault();
